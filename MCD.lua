@@ -5,7 +5,7 @@ end
 
 pcall(function() getgenv().MCDebounce = true end)
 
-local macroUrl = "https://trigger.macrodroid.com/b6773a09-557f-4e0a-b3f6-2866c05a51b2/MCD"
+local macroUrl = "https://trigger.macrodroid.com/<id>/MCD"
 local pingInterval = 240
 
 local httpService = game:GetService("HttpService")
