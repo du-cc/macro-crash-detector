@@ -5,8 +5,8 @@ end
 
 pcall(function() getgenv().MCDebounce = true end)
 
-local macroUrl = "https://trigger.macrodroid.com/idididid/MCD"
-local pingInterval = 240
+local macroUrl = "id"
+local pingInterval = 10
 
 local httpService = game:GetService("HttpService")
 local req = (syn and syn.request) or request or (http and http.request) or
@@ -84,15 +84,19 @@ local function stop()
     end
 end
 
--- Start the detect
-start()
+local function run()
+    -- Start the detect
+    start()
 
--- Ping every 4 minutes
-while task.wait(pingInterval) do
-    ping()
+    -- Ping every 4 minutes
+    while task.wait(pingInterval) do
+        ping()
+    end
+
+    -- Stop when player leaves
+    game.Players.PlayerRemoving:Connect(function()
+        stop()
+    end)
 end
 
--- Stop when player leaves
-game.Players.PlayerRemoving:Connect(function()
-    stop()
-end)
+coroutine.wrap(run)()
