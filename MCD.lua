@@ -6,7 +6,7 @@ end
 pcall(function() getgenv().MCDebounce = true end)
 
 local macroUrl = "id"
-local pingInterval = 240
+local pingInterval = 10
 
 local httpService = game:GetService("HttpService")
 local req = (syn and syn.request) or request or (http and http.request) or
